@@ -1,21 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import { NavigationContainer } from '@react-navigation/native'
+import React, { Component } from 'react'
+import { Provider } from 'react-redux'
+import Router from './src/router/Router'
+import Store from './src/redux/Store'
+export class App extends Component {
+  render() {
+    return (
+      <Provider store={Store}>
+        <NavigationContainer>
+          <Router/>
+        </NavigationContainer>
+      </Provider>
+    )
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
+// yarn add @react-navigation/native
+// expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
